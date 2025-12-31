@@ -1,2 +1,4 @@
 1. Li, X., Zhang, Q., & Wang, Y. (2020). Machine Learning Approaches for Solar Power Forecasting. Renewable Energy.
-3. Egyptian Meteorological Authority (2022). Aswan Weather Dataset.
+2. Egyptian Meteorological Authority (2022). Aswan Weather Dataset.
+3. Al-Dahidi, S., Ayadi, O., Alrbai, M., & Adeeb, J. (2018). Ensemble Approach of Optimized Artificial Neural Networks for Solar Photovoltaic Power Prediction. IEEE Access.
+4. Wang, H., Mao, L., Zhang, H., & Wu, Q. (2019). Multi-prediction of Electric Load and Photovoltaic Solar Power in Grid-Connected Photovoltaic Systems Using State Transition Method. Applied Energy.
