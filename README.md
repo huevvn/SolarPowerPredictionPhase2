@@ -1,5 +1,7 @@
 # Solar Power Prediction
 
+Notebook Version by my pair Omar Elnazly: https://github.com/Omar-Elnazly/Aswan-Weather-Analytics
+
 This repository contains a comprehensive pipeline for predicting solar power output using meteorological data. It performs data cleaning, extensive feature engineering, statistical analysis, and machine learning modeling (both classification and regression).
 
 ## Features
