@@ -1,5 +1,3 @@
-# analysis.py - stats and viz functions
-
 import pandas as pd
 import numpy as np
 from scipy import stats
@@ -7,7 +5,6 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 def descriptive_stats(df):
-    # get basic stats for numeric cols
     nums = df.select_dtypes(include=[np.number])
     s = nums.describe().T[['min', 'max', 'mean', 'std']]
     s['variance'] = nums.var()
@@ -22,7 +19,6 @@ def covariance_matrix(df):
     return df.select_dtypes(include=[np.number]).cov()
 
 def anova_test(df, cat_col, num_col):
-    # one way anova
     groups = df.groupby(cat_col)[num_col].apply(list)
     f, p = stats.f_oneway(*groups)
     return f, p

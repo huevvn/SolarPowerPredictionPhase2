@@ -1,5 +1,3 @@
-# evaluation.py - all metrics and plots
-
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -10,7 +8,6 @@ from sklearn.metrics import (
 )
 from sklearn.preprocessing import label_binarize
 
-# classification metrics
 def clf_metrics(y_true, y_pred):
     acc = accuracy_score(y_true, y_pred)
     return {
@@ -21,7 +18,6 @@ def clf_metrics(y_true, y_pred):
         'f1': f1_score(y_true, y_pred, average='weighted', zero_division=0)
     }
 
-# regression metrics
 def reg_metrics(y_true, y_pred):
     y_true = np.array(y_true)
     y_pred = np.array(y_pred)
@@ -31,17 +27,14 @@ def reg_metrics(y_true, y_pred):
     rmse = np.sqrt(mse)
     r2 = r2_score(y_true, y_pred)
     
-    # willmott index
     num = np.sum((y_pred - y_true) ** 2)
     denom = np.sum((np.abs(y_pred - y_true.mean()) + np.abs(y_true - y_true.mean())) ** 2)
     willmott = 1 - (num / denom) if denom != 0 else 0
     
-    # nash-sutcliffe efficiency
     ss_res = np.sum((y_true - y_pred) ** 2)
     ss_tot = np.sum((y_true - y_true.mean()) ** 2)
     nse = 1 - (ss_res / ss_tot) if ss_tot != 0 else 0
     
-    # legates-mccabe index
     num_lm = np.sum(np.abs(y_pred - y_true))
     denom_lm = np.sum(np.abs(y_true - y_true.mean()))
     legates_mccabe = 1 - (num_lm / denom_lm) if denom_lm != 0 else 0
@@ -70,7 +63,6 @@ def plot_confusion(y_true, y_pred, labels, path=None):
         plt.show()
 
 def plot_roc(y_true, y_proba, classes, path=None):
-    # roc curve for multiclass
     y_bin = label_binarize(y_true, classes=classes)
     n_classes = len(classes)
     
@@ -95,7 +87,6 @@ def plot_roc(y_true, y_proba, classes, path=None):
         plt.show()
 
 def plot_learning_curve(train_sizes, train_scores, test_scores, title, path=None):
-    # shows overfitting/underfitting
     plt.figure(figsize=(8, 5))
     plt.plot(train_sizes, train_scores, 'o-', label='Training')
     plt.plot(train_sizes, test_scores, 'o-', label='Validation')
@@ -105,7 +96,6 @@ def plot_learning_curve(train_sizes, train_scores, test_scores, title, path=None
     plt.legend()
     plt.grid(True)
     
-    # check fit status
     plt.text(0.5, 0.1, status, transform=plt.gca().transAxes, fontsize=12, color='red')
     
     plt.tight_layout()
