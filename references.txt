@@ -1,0 +1,2 @@
+1. Li, X., Zhang, Q., & Wang, Y. (2020). Machine Learning Approaches for Solar Power Forecasting. Renewable Energy.
+3. Egyptian Meteorological Authority (2022). Aswan Weather Dataset.
